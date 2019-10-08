@@ -1,0 +1,178 @@
+home:
+    head:
+        title:                Réservation
+    header:
+            title: |
+                réservation
+                en ligne
+    form:
+        title:                programmer votre visite
+    content:
+        title:                Informations pratiques
+        horaires:             "Horaires :"
+        hordesc: |
+            Ouvert tous les jours de 9h à 18h sauf le mardi
+            Noctures jusqu'à 21h45 le mercredi et le vendredi
+        fermetures:           "Fermetures :"
+        fermdesc:             Les 1er mai, 1er novembre et 25 décembre
+        msgenter:             Entrez au musée en moins de 30 minutes
+        msgenterdesc:         (en achetant votre billet en ligne)
+        msgattention:         "Attention : pas de réservation possible pour les dimanches et les jours fériés."
+    footer:
+        credits:              Crédits
+        contacts:             Contacts
+        legalnotice:          Mentions légales
+        socialnetworks:       Réseaux Sociaux
+
+header:
+        breadcrumb1: |
+            programmation
+            de la visite
+        breadcrumb2: |
+            renseignements
+            des visiteurs
+        breadcrumb3: |
+            recapitulatif
+            de la visite
+        breadcrumb4: |
+            validation
+            de la commande
+        breadcrumb5: |
+            récapitulatif
+            de la commande
+        breadcrumb6: |
+            paiement de
+            la commande
+        breadcrumb7: |
+            commande
+            validée
+        breadcrumb8: |
+            page
+            d'erreur
+
+index:
+    head:
+        title:                Accueil
+    form:
+        date:
+            label:            Date de la visite
+            error:            format jj/mm/aaaa
+        ticket:               Nombre de billets
+        type:
+            label:            Type de billets
+            days:             Journée
+            halfday:          Demi-journée (à partir de 14h)
+
+informations:
+    head:
+        title:                Informations
+    form:
+        tickettitle:          Billet n°
+        name:                 Nom
+        firstname:            Prénom
+        country:              Pays
+        birthdate:            Date de naissance
+        reducedprice:         Tarif réduit*
+        reducedpricedesc:     "* le tarif réduit est accordé dans certaines conditions (étudiant, employé du musée, d'un service du Ministère de la Culture, Militaire...)"
+
+recapitulative:
+    head:
+        title:                Récapitulatif
+    form:
+        recapitulativetitle:  Votre réservation pour le %codeCommande%
+        message:              "Pour valider la commande <strong>%codeCommande%</strong> et procéder au règlement, veuillez entrer votre adresse email :"
+
+validation:
+    head:
+        title:                Validation
+    form:
+        title:                validation de votre commande
+        booking:
+            title:            Commande %codeCommande% du %date%
+            comment:          Nous vous remercions d'avoir valider votre commande pour la visite du %codeCommande% d'un montant de %price%€.
+            send:             Un mail vient de vous être envoyé afin de procéder au réglement.
+
+verified:
+    head:
+        title:                Validation
+    form:
+        title:                paiement de votre commande
+        booking:
+            title:            Commande %codeCommande% pour le %date%
+            recall:           "Rappel de votre commande :"
+            comment:          Pour régler votre commande, veuillez nous munir de votre carte bancaire.
+            send:             "Les billets seront envoyés par email à l'adresse :"
+            button:           Paiement
+
+topay:
+    head:
+        title:                Paiement
+    form:
+        title:                paiement de votre commande
+        comment: |
+            Règlement de la commande %codeCommande%
+            pour le %date%
+        number:               "Numéro de carte :"
+        dateexp:              "Date d'expiration :"
+        cvc:                  "Cryptogramme visuel :"
+        cvccomment:           3 derniers chiffres au dos de la carte
+        regulation:           "Montant de la commande : %price% €"
+    msg:
+        incorrect_number:     Le numéro de carte est incorrect.
+        invalid_number:       Le numéro de carte n'est pas un numéro de carte de crédit valide.
+        invalid_expiry_month: Le mois d'expiration de la carte n'est pas valide.
+        invalid_expiry_year:  L'année d'expiration de la carte n'est pas valide.
+        invalid_cvc:          Le code de sécurité de la carte n'est pas valide.
+        expired_card:         La carte a expiré.
+        incorrect_cvc:        Le code de sécurité de la carte est incorrect.
+        incorrect_zip:        Le code postal de la carte a échoué à la validation.
+        card_declined:        La carte a été refusée.
+        missing:              Il n'y a pas de carte sur un client qui est chargé.
+        processing_error:     Une erreur est survenue lors du traitement de la carte.
+        rate_limit:           Une erreur s'est produite suite à des requêtes qui ont frappé l'API trop rapidement. Veuillez nous informer si vous exécutez régulièrement cette erreur.
+        error:                Une erreur s'est produite lors de la demande de paiement.
+
+paid:
+    head:
+        title:                Confirmation de paiement
+    form:
+        title:                envoi de votre commande
+        comment:              Commande %codeCommande% du %date%
+        confirmation:         Nous vous remercions pour votre commande d'un montant de %price%€ concernant la visite du %date%.
+        send:                 Vos billets viennent de vous être envoyés à l'adresse %email%.
+
+form:
+    button:
+        previous:             Précédent
+        payment:              Paiement
+        next:                 Suivant
+        pay:                  Payer
+    name:                     Nom
+    firstname:                Prénom
+    birthdate:                Date de naissance
+    indicationpricetitle:     Tarif
+    price:                    Prix
+    total:                    Total
+
+mail:
+    subject:                  Commande pour votre visite du Louvre
+    title:                    Musée du Louvre
+    comment:                  "Merci de cliquer sur le lien suivant afin de confirmer votre commande et procéder au règlement : "
+    link:                     régler ma commande
+    subtitle:                 Commande %codeCommande% pour le %date%
+    comment1:                 "Vous avez réservé pour les personnes suivantes :"
+    comment2:                 Le coût total de la visite est de %price% €.
+    comment3:                 Nous vous rappelons que les billets demi-journée sont utilisables à partir de 14h.
+    comment4:                 Une pièce d'identité sera demandé à l'entrée du Musée et nous vous rappelons que le tarif réduit est accordé dans certaines conditions (étudiant, employé du musée, d'un service du Ministère de la Culture, Militaire...) sous réserve d'un justificatif.
+
+erreur:
+    title:                    erreur
+    message:                  Un problème technique est survenu. Une erreur s'est produite.
+    message404:               Oups cette page reste introuvable...
+
+constant:
+    reduced:                  Réduit
+    baby:                     Bébé
+    child:                    Enfant
+    adult:                    Normal
+    senior:                   Sénior

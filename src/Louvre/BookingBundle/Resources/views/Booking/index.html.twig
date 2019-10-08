@@ -1,0 +1,43 @@
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'index.head.title'|trans ~ ' - ' ~ parent() }}
+{% endblock %}
+
+{% block li %}
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb1'|trans|nl2br }}
+    </li>
+{%  endblock %}
+
+{% block formulaire %}
+    {% block titre %}
+        {{ parent() }}
+    {% endblock %}
+
+    {{ form_start(form) }}
+    <!-- #left -->
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-5">
+            <div>
+                {{ form_label(form.date) }}
+                {{ form_widget(form.date, { 'attr': {'class': 'date' }}) }}
+                {{ form_errors(form.date) }}
+            </div>
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-5">
+            <p>
+                {{ form_label(form.nbTickets) }}
+                {{ form_widget(form.nbTickets) }}
+                {{ form_errors(form.nbTickets) }}
+            </p>
+            <p>
+                {{ form_label(form.halfDay) }}
+                {{ form_widget(form.halfDay) }}
+                {{ form_errors(form.halfDay) }}
+            </p>
+        </div>
+    </div>
+    {{ form_end(form) }}
+ 
+{% endblock %}

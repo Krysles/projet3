@@ -1,0 +1,10 @@
+message:
+    daysholiday:            "* commande impossible pour les jours fériés"
+    dayoftheweek:           "* commande impossible pour les Mardis et Dimanches"
+    pastdays:               "* commande impossible pour les jours passés"
+    visits:                 "* le nombre de visites a été atteint"
+    hour:                   "* seul les billets demi-journées peuvent être commandés au delà de 14h"
+    email:                  "* format votre@email.fr"
+    name:                   "* 2 caractères minimum"
+    country:                "* veuillez choisir un pays dans la liste"
+    birthday:               "* votre date de naissance doit être inférieur à la date d'aujourd'hui"

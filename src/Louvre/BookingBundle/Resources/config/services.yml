@@ -1,0 +1,41 @@
+services:
+    louvre_booking.codecommande:
+        class: Louvre\BookingBundle\Services\CodeCommandGenerator
+        arguments: ['@doctrine.orm.entity_manager']
+    louvre_booking.ticketsgenerator:
+        class: Louvre\BookingBundle\Services\TicketsGenerator
+        arguments: ['@doctrine.orm.entity_manager']
+    louvre_booking.pricegenerator:
+        class: Louvre\BookingBundle\Services\PriceGenerator
+    louvre_booking.validatebooking:
+        class: Louvre\BookingBundle\Services\ValidateBooking
+        arguments: ['@mailer', '@templating', '@louvre_booking.generatetokenfororder', '@translator', '%mailer_address%']
+    louvre_booking.validnbvisit:
+        class: Louvre\BookingBundle\Services\ValidNbVisit
+        arguments: ['@doctrine.orm.entity_manager']
+    louvre_booking.generatetokenfororder:
+        class: Louvre\BookingBundle\Services\GenerateTokenForOrder
+    louvre_booking.checkdaysholiday:
+        class: Louvre\BookingBundle\Services\CheckDaysHoliday
+    louvre_booking.checkdayoftheweek:
+            class: Louvre\BookingBundle\Services\CheckDayOfTheWeek
+    louvre_booking.checkpastdays:
+            class: Louvre\BookingBundle\Services\CheckPastDays
+    louvre_booking.sendcommand:
+        class: Louvre\BookingBundle\Services\SendCommand
+        arguments: ['@doctrine.orm.entity_manager', '@mailer', '@templating', '@translator', '%mailer_address%']
+    louvre_booking.checktimeofthebooking:
+        class: Louvre\BookingBundle\Services\CheckTimeOfTheBooking
+
+    louvre_booking.validator.validatedate:
+        class: Louvre\BookingBundle\Validator\ValidateDateValidator
+        arguments: ['@louvre_booking.checkdaysholiday', '@louvre_booking.checkdayoftheweek', '@louvre_booking.checkpastdays', '@louvre_booking.validnbvisit', '@louvre_booking.checktimeofthebooking']
+        tags:
+            - { name: validator.constraint_validator, alias: louvre_booking_validatedate }
+
+    louvre_booking.stripepaiement:
+        class: Louvre\BookingBundle\Services\StripePaiement
+        arguments: ['@request_stack', '@louvre_booking.sendcommand', '@session', '%stripe_private_key%']
+#    louvre_booking.example:
+#        class: Louvre\BookingBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

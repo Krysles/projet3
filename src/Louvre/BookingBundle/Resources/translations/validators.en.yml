@@ -1,0 +1,10 @@
+message:
+    daysholiday:            "* can not be used for public holidays"
+    dayoftheweek:           "* impossible to control on Tuesdays and Sundays"
+    pastdays:               "* command impossible for past days"
+    visits:                 "* the number of visits war reached"
+    hour:                   "* only half-day tickets can be ordered after 2pm"
+    email:                  "* format your@email.fr"
+    name:                   "* minimum 2 characters"
+    country:                "* please select a country from the list"
+    birthday:               "* your date of birth must be less than today's date"

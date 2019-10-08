@@ -1,0 +1,63 @@
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'informations.head.title'|trans ~ ' - ' ~ parent() }}
+{% endblock %}
+
+{% block li %}
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        <a class="text-muted" href="{{ path('louvre_booking_index_commande',{ 'codeCommande':commande.codeCommande }) }}
+        ">{{ 'header.breadcrumb1'|trans|nl2br }}</a>
+    </li>
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb2'|trans|nl2br }}
+    </li>
+{%  endblock %}
+
+
+{% block formulaire %}
+    {% block titre %}
+        {{ parent() }}
+    {% endblock %}
+    {{ form_start(form) }}
+        {% set x = 1 %}
+        {% for ticket in form.tickets %}
+            <div class="row">
+                <p class="col-xs-offset-1 col-xs-10 entete">{{ 'informations.form.tickettitle'|trans ~ x }}</p>
+            </div>
+            {% set x = x + 1 %}
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-5">
+                    {{ form_label(ticket.name, 'informations.form.name'|trans ) }}
+                    {{ form_widget(ticket.name) }}
+                    {{ form_errors(ticket.name) }}
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-5">
+                    {{ form_label(ticket.firstName, 'informations.form.firstname'|trans ) }}
+                    {{ form_widget(ticket.firstName) }}
+                    {{ form_errors(ticket.firstName) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-5">
+                    {{ form_label(ticket.country, 'informations.form.country'|trans ) }}
+                    {{ form_widget(ticket.country) }}
+                    {{ form_errors(ticket.country) }}
+                </div>
+                <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-0 col-md-5">
+                    {{ form_label(ticket.birthDate, 'informations.form.birthdate'|trans ) }}
+                    {{ form_widget(ticket.birthDate) }}
+                    {{ form_errors(ticket.birthDate) }}
+                </div>
+            </div>
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+                {{ form_widget(ticket.reducedPrice) }}
+                {{ form_errors(ticket.reducedPrice) }}
+                <p class="italic">{{ 'informations.form.reducedpricedesc'|trans }}</p>
+            </div>
+        {% endfor %}
+    {{ form_end(form) }}
+    <a href="{{ path('louvre_booking_index_commande', {'codeCommande': commande.codeCommande }) }}">
+        <button type="button" class="btn-default btn btn-primary">{{ 'form.button.previous'|trans }}</button>
+    </a>
+{% endblock %}

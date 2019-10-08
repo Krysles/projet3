@@ -1,0 +1,102 @@
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'topay.head.title'|trans ~ ' - ' ~ parent() }}
+{% endblock %}
+
+{% block li %}
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb5'|trans|nl2br }}
+    </li>
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb6'|trans|nl2br }}
+    </li>
+{%  endblock %}
+
+{% block formulaire %}
+
+    {% block titre %}
+        <h2 class="text-center text-uppercase">{{ 'topay.form.title'|trans }}</h2>
+    {% endblock %}
+    {{ form_start(form, { 'attr': {'id': 'payment_form' } }) }}
+
+
+    <div class="row">
+        <p class="col-xs-offset-1 col-xs-10 entete text-center"><strong>{{ 'topay.form.comment'|trans({'%codeCommande%': commande.codeCommande, '%date%': commande.date|localizeddate('medium', 'none')})|nl2br }}</strong></p>
+    </div>
+    <div class="row">
+        <div id="errors" class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+            {{ form_label(form.number, 'topay.form.number'|trans) }}
+            {{ form_widget(form.number, { 'attr': {'data-stripe': 'number' } }) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+            {{ form_label(form.dateexp, 'topay.form.dateexp'|trans) }}
+        </div>
+        <div class="col-xs-offset-1 col-xs-5 col-sm-offset-1 col-sm-5 col-md-offset-1 col-md-5">
+            {{ form_widget(form.dateexp.day, {'attr': { 'style': 'display:none' } }) }}
+            {{ form_widget(form.dateexp.month, { 'attr': {'data-stripe': 'exp_month' } }) }}
+        </div>
+        <div class="col-xs-offset-0 col-xs-5 col-sm-offset-0 col-sm-5 col-md-offset-0 col-md-5">
+            {{ form_widget(form.dateexp.year, { 'attr': {'data-stripe': 'exp_year' } }) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+            {{ form_label(form.cvc, 'topay.form.cvc'|trans) }}
+            <p class="italic">{{ 'topay.form.cvccomment'|trans }}</p>
+            {{ form_widget(form.cvc, { 'attr': {'data-stripe': 'cvc' } }) }}
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+                <p class="text-center text-danger">{{ 'topay.form.regulation'|trans({'%price%': commande.price}) }}</p>
+            </div>
+        </div>
+    </div>
+
+    {{ form_end(form) }}
+
+{% endblock %}
+
+
+{% block javascript %}
+    <script>
+        Stripe.setPublishableKey('{{ stripe_public_key }}');
+        var $form = $('#payment_form');
+        var $errors = $('#errors');
+        var errorMessages = {
+            incorrect_number: "{{ 'topay.msg.incorrect_number'|trans }}",
+            invalid_number: "{{ 'topay.msg.invalid_number'|trans }}",
+            invalid_expiry_month: "{{ 'topay.msg.invalid_expiry_month'|trans }}",
+            invalid_expiry_year: "{{ 'topay.msg.invalid_expiry_year'|trans }}",
+            invalid_cvc: "{{ 'topay.msg.invalid_cvc'|trans }}",
+            expired_card: "{{ 'topay.msg.expired_card'|trans }}",
+            incorrect_cvc: "{{ 'topay.msg.incorrect_cvc'|trans }}",
+            incorrect_zip: "{{ 'topay.msg.incorrect_zip'|trans }}",
+            card_declined: "{{ 'topay.msg.card_declined'|trans }}",
+            missing: "{{ 'topay.msg.missing'|trans }}",
+            processing_error: "{{ 'topay.msg.processing_error'|trans }}",
+            rate_limit:  "{{ 'topay.msg.rate_limit'|trans }}"
+        };
+        $form.submit(function (e) {
+            e.preventDefault();
+            $form.find('button').prop('disabled', true);
+            Stripe.card.createToken($form, function (status, response) {
+                if (response.error && response.error.type == 'card_error') {
+                    $errors.find('.errormessage').remove();
+                    $errors.prepend('<div class="errormessage"><p class="text-center">'+ errorMessages[response.error.code] +'</p></div>');
+                    $form.find('button').prop('disabled', false);
+                } else {
+                    var token = response.id;
+                    $('#payment_form.row').remove();
+                    $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+                    $form.get(0).submit();
+                }
+            });
+        });
+    </script>
+{% endblock %}

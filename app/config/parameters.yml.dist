@@ -1,0 +1,15 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 127.0.0.1
+    database_port: ~
+    database_name: null
+    database_user: null
+    database_password: null
+    mailer_transport: null
+    mailer_address: null
+    mailer_user: null
+    mailer_password: null
+    secret: null
+    mailer_host: 127.0.0.1
+    stripe_public_key: null
+    stripe_private_key: null

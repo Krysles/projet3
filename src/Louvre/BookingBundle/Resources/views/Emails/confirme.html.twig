@@ -1,0 +1,5 @@
+<img src="{{ absolute_url(asset('bundles/louvrebooking/images/logo.jpg')) }}" />
+
+<h1>{{ 'mail.title'|trans }}</h1>
+
+<p>{{ 'mail.comment'|trans }}<a href="{{ url('louvre_booking_verified', {'token':token}) }}">{{ 'mail.link'|trans }}</a></p>

@@ -1,0 +1,32 @@
+<img src="{{ absolute_url(asset('bundles/louvrebooking/images/logo.jpg')) }}" />
+
+<h1>{{ 'mail.title'|trans }}</h1>
+
+<h3>{{ 'mail.subtitle'|trans({'%codeCommande%': commande.codeCommande, '%date%': commande.date|localizeddate('medium', 'none')}) }}</h3>
+
+<p>{{ 'mail.comment1'|trans }}</p>
+<table>
+    <tr>
+        <td>{{ 'form.name'|trans }}</td>
+        <td>{{ 'form.firstname'|trans }}</td>
+        <td>{{ 'form.birthdate'|trans }}</td>
+        <td>{{ 'form.indicationpricetitle'|trans }}</td>
+        <td></td>
+    </tr>
+    {% set orderPrice = 0 %}
+    {% for ticket in tickets %}
+        <tr>
+            <td>{{ ticket.name }}</td>
+            <td>{{ ticket.firstName }}</td>
+            <td>{{ ticket.birthDate|localizeddate('short', 'none') }}</td>
+            <td>{{ ticket.priceName|trans }}</td>
+            <td>{{ ticket.price }}€</td>
+            {% set orderPrice = orderPrice + ticket.price %}
+        </tr>
+    {% endfor %}
+</table>
+<p>{{ 'mail.comment2'|trans({'%price%': orderPrice}) }}</p>
+{% if commande.halfDay %}
+<p>{{ 'mail.comment3'|trans }}</p>
+{% endif %}
+<p class="italic">{{ 'mail.comment4'|trans }}</p>

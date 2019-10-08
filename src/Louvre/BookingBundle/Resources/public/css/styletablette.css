@@ -1,0 +1,40 @@
+/* CSS HEADER */
+#logo {
+    width: 100%;
+}
+.flag {
+    width: 100%;
+    margin-left: 0%;
+}
+header h1 {
+    font-size: 18px;
+    margin: 15px 0;
+}
+/* CSS CORPS */
+#corps #content {
+    text-align: left;
+    padding: 20px 30px;
+}
+#corps #content img {
+    margin: 0 30px;
+}
+#corps #content p:nth-child(6) {
+    text-align: right;
+    font-size: 12px;
+}
+#corps #content p:nth-child(7) {
+    text-align: center;
+}
+/* CSS FOOTER */
+footer {
+    padding-bottom: 15px;
+}
+footer nav {
+    text-align: left;
+    position: relative;
+    top: 70px;
+}
+#photo {
+    width: 60%;
+    margin-left: 40%;
+}

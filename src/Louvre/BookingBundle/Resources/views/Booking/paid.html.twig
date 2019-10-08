@@ -1,0 +1,31 @@
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'paid.head.title'|trans ~ ' - ' ~ parent() }}
+{% endblock %}
+
+{% block li %}
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb5'|trans|nl2br }}
+    </li>
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb6'|trans|nl2br }}
+    </li>
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb7'|trans|nl2br }}
+    </li>
+{%  endblock %}
+
+{% block formulaire %}
+    {% block titre %}
+        <h2 class="text-center text-uppercase">{{ 'paid.form.title'|trans }}</h2>
+    {% endblock %}
+
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+            <p><strong>{{ 'paid.form.comment'|trans({'%codeCommande%': commande.codeCommande, '%date%': 'now'|localizeddate('medium', 'none')}) }}</strong></p>
+            <p class="italic">{{ 'paid.form.confirmation'|trans({'%price%': commande.price, '%date%': commande.date|localizeddate('medium', 'none') }) }}</p>
+            <p class="italic">{{ 'paid.form.send'|trans({'%email%': commande.email}) }}</p>
+        </div>
+    </div>
+{% endblock %}

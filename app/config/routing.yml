@@ -1,0 +1,6 @@
+louvre_booking:
+    resource: "@LouvreBookingBundle/Controller/"
+    type:     annotation
+    prefix:   /{_locale}
+    requirements:
+        _locale: en|fr

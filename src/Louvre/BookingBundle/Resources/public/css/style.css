@@ -1,0 +1,162 @@
+body {
+    background: url("../images/background.jpg") no-repeat top center;
+    background-size: 100%;
+    font-family: Arial, sans-serif;
+    min-width: 320px;
+}
+h1, h2, h3, h4, h5, h6, a, header .list-unstyled > li {
+    font-family: Georgia, "Times New Roman", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.btn-default {
+    font-family: Arial, sans-serif;
+}
+/* CSS HEADER */
+header {
+    background-color: #1F1F1F;
+    padding-top: 15px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+#logo {
+    width: 130px;
+}
+.flag {
+    width: 100%;
+}
+header h1 {
+    color: white;
+    letter-spacing: 3px;
+    margin: 5px 15px 5px -13%;
+    font-size: 100%;
+    width: 100%;
+}
+header .list-unstyled {
+    margin: 10px 0;
+}
+header .list-unstyled > li {
+    color: white;
+    font-size: 10px;
+    padding: 0 5px;
+    margin-bottom: 5px;
+    border-left: 1px solid #454545;
+}
+header .list-unstyled > li:nth-child(even) {
+    border-left: 1px solid #454545;
+}
+header .list-unstyled > li > a.text-primary {
+    color: white;
+    text-decoration: none;
+}
+header .list-unstyled > li > a.text-muted:hover, footer nav a:hover {
+    color: white;
+    text-decoration: none;
+}
+/* CSS CORPS */
+#corps {
+    background-color: #454545;
+    padding: 15px 0;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    min-height: 700px;
+}
+/* CSS CORPS GAUCHE */
+#corps section #left {
+    background-color: white;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+#left h2 {
+    background-image:linear-gradient(#F8F8F8, #DCDBDC);
+    font: 15px Arial, sans-serif;
+    padding: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+#left button {
+    margin: 15px;
+}
+#left > form > div > div {
+    margin-bottom: 10px;
+}
+.table > thead > tr > th {
+    vertical-align: middle;
+}
+.italic {
+    font-style: italic;
+    font-size: 11px;
+}
+.entete {
+    border-bottom: 2px solid black;
+    padding: 0 0 10px 0;
+    font-weight: 800;
+}
+#left table {
+    font-size: 11px;
+}
+#left strong {
+    font-size: 12px;
+}
+
+.help-block {
+    color: red;
+    font-size: 11px;
+    font-style: italic;
+}
+.glyphicon-exclamation-sign {
+    display: none;
+}
+/* CSS CORPS DROITE */
+#corps #content {
+    background-color: #C12701;
+    border: 1px solid white;
+    text-align: center;
+    color: white;
+    letter-spacing: 1px;
+    padding: 10px;
+}
+#corps #content h2 {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+#corps #content h4 {
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    padding-top: 10px;
+}
+#corps #content p {
+    font-size: 9px;
+}
+
+
+
+/* CSS FOOTER */
+footer {
+    background-color: #1F1F1F;
+    padding-top: 15px;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+}
+#photo {
+    width: 50%;
+    margin: 0 25%;
+}
+footer nav {
+    text-align: center;
+    margin-top: 10px;
+}
+footer .list-inline > li {
+    color: white;
+    padding-right: 0;
+}
+footer nav ul li:nth-child(4) a {
+    margin-right: 0;
+}
+footer nav ul li a {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: grey;
+    margin-right: 5px;
+    margin-left: -5px;
+}

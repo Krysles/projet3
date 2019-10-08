@@ -1,0 +1,63 @@
+{% extends "LouvreBookingBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ 'verified.head.title'|trans ~ ' - ' ~ parent() }}
+{% endblock %}
+
+{% block li %}
+    <li class="col-xs-6 col-sm-2 col-md-2 text-uppercase">
+        {{ 'header.breadcrumb5'|trans|nl2br }}
+    </li>
+{%  endblock %}
+
+
+{% block formulaire %}
+    {% block titre %}
+        <h2 class="text-center text-uppercase">{{ 'verified.form.title'|trans }}</h2>
+    {% endblock %}
+
+    <div class="row">
+        <p class="col-xs-offset-1 col-xs-10 entete text-center"><strong>{{ 'verified.form.booking.title'|trans({'%codeCommande%': commande.codeCommande, '%date%': commande.date|localizeddate('medium', 'none')}) }}</strong></p>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+            <p class="italic">{{ 'verified.form.booking.recall'|trans }}</p>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th class="text-center">{{ 'form.name'|trans }}</th>
+                    <th class="text-center">{{ 'form.firstname'|trans }}</th>
+                    <th class="text-center">{{ 'form.indicationpricetitle'|trans }}</th>
+                    <th class="text-center">{{ 'form.price'|trans }}</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th class="text-right">{{ 'form.total'|trans }}</th>
+                    <th class="text-center">{{ commande.price }}€</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td class="text-center">{{ ticket.name }}</td>
+                        <td class="text-center">{{ ticket.firstName }}</td>
+                        <td class="text-center">{{ ticket.priceName|trans }}<br />({{ ticket.birthDate|localizeddate('short', 'none') }})</td>
+                        <td class="text-center">{{ ticket.price }}€</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-offset-1 col-xs-10 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10">
+        <p class="italic">{{ 'verified.form.booking.comment'|trans }}</p>
+        <p class="italic">{{ 'verified.form.booking.send'|trans }}</p>
+        <p class="italic text-center">{{ commande.email }}</p>
+    </div>
+    <a class="pull-right" href="{{ path('louvre_booking_topay', {'codeCommande': commande.codeCommande }) }}">
+        <button type="button" class="btn-default btn btn-primary">{{ 'form.button.payment'|trans }}</button>
+    </a>
+{% endblock %}

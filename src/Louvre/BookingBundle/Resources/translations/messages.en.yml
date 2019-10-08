@@ -1,0 +1,179 @@
+home:
+    head:
+        title:                Booking
+    header:
+        title: |
+            online
+            booking
+    form:
+        title:                Schedule your visit
+    content:
+        title:                Useful information
+        horaires:             "Schedules :"
+        hordesc: |
+            Open every day from 9 am to 6 pm except Tuesdays
+            Nocturnes until 9.45 pm on Wednesdays and Fridays
+        fermetures:           "Closing :"
+        fermdesc:             May 1, November 1 and December 25
+        msgenter:             Enter the museum in less than 30 minutes
+        msgenterdesc:         (by buying your ticket online)
+        msgattention:         "Attention: no reservation possible on Sundays and public holidays."
+    footer:
+        credits:              Credits
+        contacts:             Contacts
+        legalnotice:          Legal Notice
+        socialnetworks:       Social Networks
+
+header:
+        breadcrumb1: |
+            schedule
+            of the visit
+        breadcrumb2: |
+            visitor
+            information
+        breadcrumb3: |
+            summary
+            of the visit
+        breadcrumb4: |
+            confirmation
+            of the order
+        breadcrumb5: |
+            order
+            summary
+        breadcrumb6: |
+            confirmation of
+            the order
+        breadcrumb7: |
+            validated
+            order
+        breadcrumb8: |
+            error
+            page
+
+index:
+    head:
+        title:                Home
+    form:
+        date:
+            label:            Date of visit
+            error:            format mm/dd/aaaa
+        ticket:               Number of tickets
+        type:
+            label:            Type of tickets
+            days:             Day
+            halfday:          Half day (from 2pm)
+
+
+informations:
+    head:
+        title:                Informations
+    form:
+        tickettitle:          Ticket No.
+        name:                 Name
+        firstname:            First name
+        country:              Country
+        birthdate:            Birth date
+        reducedprice:         Reduced price*
+        reducedpricedesc:     "* the reduced rate is granted under certain conditions (student, employee of the museum, a department of the Ministry of Culture, Military...)"
+
+recapitulative:
+    head:
+        title:                Recapitulation
+    form:
+        recapitulativetitle:  Your reservation for %codeCommande%
+        message:              "To validate the <strong>%codeCommande%</strong> command and proceed to payment, please enter your email address :"
+
+validation:
+    head:
+        title:                Validation
+    form:
+        title:                validation of your order
+        booking:
+            title:            Order %codeCommande% from %date%
+            comment:          We thank you for validating your order for the visit of the %codeCommande% in the amount of %price%€.
+            send:             A mail has just been sent to you to settle.
+
+verified:
+    head:
+        title:                Validation
+    form:
+        title:                payment of your order
+        booking:
+            title:            Order %codeCommande% for %date%
+            recall:           "Reminder of your order :"
+            comment:          To pay for your order, please bring your credit card.
+            send:             "Tickets will be sent by email to :"
+            button:           Payment
+
+topay:
+    head:
+        title:                Payment
+    form:
+        title:                payment of your order
+        comment: |
+            Ordering the %codeCommande%
+            order for %date%
+        number:               "Card number :"
+        dateexp:              "Expiration date :"
+        cvc:                  "Visual cryptogram :"
+        cvccomment:           Last 3 digits on the back of the card
+        regulation:           "Amount of the order : %price% €"
+    msg:
+        incorrect_number:     The card number is incorrect.
+        invalid_number:       The card number is not a valid credit card number.
+        invalid_expiry_month: The card's expiration month is invalid.
+        invalid_expiry_year:  The card's expiration year is invalid.
+        invalid_cvc:          The card's security code is invalid.
+        expired_card:         The card has expired.
+        incorrect_cvc:        The card's security code is incorrect.
+        incorrect_zip:        The card's zip code failed validation.
+        card_declined:        The card was declined.
+        missing:              There is no card on a customer that is being charged.
+        processing_error:     An error occurred while processing the card.
+        rate_limit:           An error occurred due to requests hitting the API too quickly. Please let us know if you're consistently running into this error.
+        error:                An error occurred while requesting payment.
+
+paid:
+    head:
+        title:                Payment confirmation
+    form:
+        title:                send your order
+        comment:              Order %codeCommande% from %date%
+        confirmation:         We thank you for your order of %price%€ concerning the visit of %date%.
+        send:                 Your tickets have been sent to you at %email%.
+
+form:
+    button:
+        previous:             Previous
+        payment:              Payment
+        next:                 Next
+        pay:                  Pay
+    name:                     Name
+    firstname:                First name
+    birthdate:                Birth date
+    indicationpricetitle:     Rate
+    price:                    Price
+    total:                    Total
+
+mail:
+    subject:                  Order for your visit to the Louvre
+    title:                    Louvre Museum
+    comment:                  "Please click on the following link to confirm your order and proceed to payment : "
+    link:                     checkout
+    subtitle:                 Order %codeCommande% from %date%
+    comment1:                 "You have booked for the following persons :"
+    comment2:                 The total cost of the visit is %price% €.
+    comment3:                 We remind you that the half-day tickets can be used from 2pm.
+    comment4:                 An ID will be required at the entrance of the Museum and we remind you that the reduced rate is granted under certain conditions (student, employee of the museum, a department of the Ministry of Culture, Military ...) subject of proof.
+
+erreur:
+    title:                    error
+    message:                  A technical problem has arisen. An error has occurred.
+    message404:               Oops this page can not be found...
+
+constant:
+    reduced:                  Reduced
+    baby:                     Baby
+    child:                    Child
+    adult:                    Normal
+    senior:                   Senior
